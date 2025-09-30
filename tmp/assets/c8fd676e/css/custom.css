@@ -1,0 +1,27 @@
+/******************
+    User custom CSS
+    ---------------
+
+    In this file you can add your own custom CSS
+    It will be loaded last, so you can override any other property.
+    Also, it will never be updated. So if you inheritate a core template and just add here some CSS, you'll still benefit of all the updates
+*/
+/* === Custom styling for 6-image mood scale === */
+.mood-scale .answers-list .answer-item {
+    display: inline-block;
+    margin: 12px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.mood-scale .answer-item img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mood-scale .answer-item img:hover {
+    transform: scale(1.1);
+}

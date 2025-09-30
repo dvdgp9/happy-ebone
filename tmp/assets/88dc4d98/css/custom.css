@@ -1,0 +1,49 @@
+/******************
+    User custom CSS
+    ---------------
+
+    In this file you can add your own custom CSS
+    It will be loaded last, so you can override any other property.
+    Also, it will never be updated. So if you inheritate a core template and just add here some CSS, you'll still benefit of all the updates
+*/
+/* === Custom styling for 6-image mood scale === */
+/* Layout images horizontally */
+.mood-scale .answers-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Each answer option */
+.mood-scale .answer-item {
+    list-style: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+    position: relative;
+}
+
+/* Hide the radio input itself */
+.mood-scale input[type="radio"] {
+    display: none;
+}
+
+/* Style images */
+.mood-scale img {
+    max-width: 100px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+/* On hover */
+.mood-scale img:hover {
+    transform: scale(1.1);
+}
+
+/* Optional: highlight selected (if fallback is needed) */
+.mood-scale .answer-item.selected img {
+    outline: 3px solid #00c853;
+}
+

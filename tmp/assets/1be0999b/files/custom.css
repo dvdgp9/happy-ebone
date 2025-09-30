@@ -1,0 +1,38 @@
+/* 🔧 Hide ugly radio buttons */
+.answer-item input[type="radio"] {
+  display: none !important;
+}
+
+/* 🔧 Make emojis clickable */
+.answer-item label {
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  padding: 5px;
+}
+
+/* Optional: small visual feedback */
+.answer-item input[type="radio"]:checked + label {
+  outline: 3px solid #007bff;
+  border-radius: 10px;
+}
+
+/* 🔧 Force answers in one horizontal row */
+.answer-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-evenly;
+  flex-wrap: nowrap !important;
+}
+
+.answer-item {
+  width: auto !important;
+  margin: 0 5px !important;
+}
+
+/* Hide checkboxes — optional */
+input[type="checkbox"],
+input[type="radio"] {
+  display: none !important;
+}
+
