@@ -6,3 +6,16 @@
     It will be loaded last, so you can override any other property.
     Also, it will never be updated. So if you inheritate a core template and just add here some CSS, you'll still benefit of all the updates
 */
+
+/* Language changer globe icon */
+.ls-lang-globe-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-lang-globe {
+  width: 1rem; /* ~16px */
+  height: 1rem;
+  vertical-align: middle;
+}
