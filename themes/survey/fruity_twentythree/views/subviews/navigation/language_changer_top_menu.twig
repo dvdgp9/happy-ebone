@@ -21,40 +21,40 @@ It's a typical bootstrap dropdown button.
 The language change is done via javascript
 #}
 
-    25→{# There is many condition where the language changer should not be shown. Eg: there is only one language available #}
-    26→{% if  aSurveyInfo.alanguageChanger.show == true %}
+{# There is many condition where the language changer should not be shown. Eg: there is only one language available #}
+{% if  aSurveyInfo.alanguageChanger.show == true %}
 
-    28→    {# we set a shortcut for aSurveyInfo.alanguageChangerDatas #}
-    29→    {% set aLCD  = aSurveyInfo.alanguageChanger.datas %}
+    {# we set a shortcut for aSurveyInfo.alanguageChangerDatas #}
+    {% set aLCD  = aSurveyInfo.alanguageChanger.datas %}
 
-    31→    <!-- Language Changer, top menu version -->
-    32→    <li class="dropdown-header text-uppercase">{{ gT("Select language") }}</li>
-    33→    <li class="ls-no-js-hidden form-change-lang dropdown nav-item">
-    34→        <a href='#' class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdownCustom"
-    35→           data-bs-target="#language-dropdown" data-navtargetid="language-dropdown">
-    36→            <span class="ls-lang-globe-wrap" aria-label="{{ gT('Select language') }}">
-    37→                <svg class="ls-lang-globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-    38→                    <circle cx="12" cy="12" r="9"></circle>
-    39→                    <path d="M3 12h18"></path>
-    40→                    <path d="M12 3a15.3 15.3 0 0 1 0 18"></path>
-    41→                    <path d="M12 3a15.3 15.3 0 0 0 0 18"></path>
-    42→                </svg>
-    43→                <span class="visually-hidden">{{ gT('Select language') }}</span>
-    44→            </span>
-    39→        </a>
-    40→        <ul class="dropdown-menu dropdown-menu-end" id="language-dropdown">
-    41→            {{ include('./subviews/navigation/back.twig') }}
-    42→            {# List of available languages. #}
-    43→            {% for value, lang in aLCD.aListLang %}
-    44→                <li class="index-item">
-    45→                    <a href='#' data-limesurvey-lang='{{ value }}' class="dropdown-item ls-language-link">
-    46→                        {{ lang }}
-    47→                    </a>
-    48→                </li>
-    49→            {% endfor %}
-    50→        </ul>
-    51→    </li>
-    52→    <li><hr class="dropdown-divider"></li>
-    53→{% endif %}
+    <!-- Language Changer, top menu version -->
+    <li class="dropdown-header text-uppercase">{{ gT("Select language") }}</li>
+    <li class="ls-no-js-hidden form-change-lang dropdown nav-item">
+        <a href='#' class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdownCustom"
+           data-bs-target="#language-dropdown" data-navtargetid="language-dropdown">
+            <span class="ls-lang-globe-wrap" aria-label="{{ gT('Select language') }}">
+                <svg class="ls-lang-globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3a15.3 15.3 0 0 1 0 18"></path>
+                    <path d="M12 3a15.3 15.3 0 0 0 0 18"></path>
+                </svg>
+                <span class="visually-hidden">{{ gT('Select language') }}</span>
+            </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" id="language-dropdown">
+            {{ include('./subviews/navigation/back.twig') }}
+            {# List of available languages. #}
+            {% for value, lang in aLCD.aListLang %}
+                <li class="index-item">
+                    <a href='#' data-limesurvey-lang='{{ value }}' class="dropdown-item ls-language-link">
+                        {{ lang }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+{% endif %}
 
-    55→{{ registerScript("BasicThemeScripts-TopLanguageChanger", "basicThemeScripts.initTopMenuLanguageChanger('.ls-language-link ', 'form#limesurvey'); ", "POS_POSTSCRIPT") }}
+{{ registerScript("BasicThemeScripts-TopLanguageChanger", "basicThemeScripts.initTopMenuLanguageChanger('.ls-language-link ', 'form#limesurvey'); ", "POS_POSTSCRIPT") }}
