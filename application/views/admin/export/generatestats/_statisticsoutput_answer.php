@@ -26,7 +26,13 @@
     <?php if ($bNAgData): ?>
 
         <td  align='right' >
-            <?php echo sprintf("%01.2f", $gdata[$i]); ?>%
+            <?php
+                $displayPercent = $gdata[$i];
+                if (isset($grawdata_percent[$i])) {
+                    $displayPercent = $grawdata_percent[$i];
+                }
+            ?>
+            <?php echo sprintf("%01.2f", $displayPercent); ?>%
         </td>
 
         <?php if ($bNAgDataExtraLine): ?>

@@ -31,6 +31,9 @@ Actualización Mar 12 2026, 23:43 UTC+1: se solicita un cambio funcional en los 
 - Voy a modificar únicamente ese cálculo para que use la suma de selecciones (`array_sum($grawdata)` antes de añadir filas auxiliares) como denominador de las opciones.
 - Implementación realizada en los dos bloques equivalentes del helper de estadísticas. Ahora, para preguntas múltiples, cada opción usa como denominador el total de selecciones marcadas de la pregunta.
 - Pendiente de validación manual por parte del usuario: comprobar en un informe con multirrespuesta que la suma de los porcentajes de opciones seleccionables da 100% aproximado (salvo diferencias de redondeo) y que la fila "Not displayed" mantiene su comportamiento actual.
+- Hallazgo adicional: la pantalla HTML del admin (`generate_html_chartjs_statistics`) renderiza la columna `Porcentaje bruto` desde la vista `application/views/admin/export/generatestats/_statisticsoutput_answer.php`.
+- En esa ruta, el helper ya construía `grawdata_percent` con el peso relativo sobre el total de selecciones válidas, pero la vista seguía mostrando `gdata`, que representa el porcentaje sobre casos/personas.
+- Se ha corregido la vista para que `Porcentaje bruto` use `grawdata_percent[$i]` cuando exista, manteniendo `gdata[$i]` como fallback.
 
 ## Lessons
 - En estadísticas de preguntas múltiples, `TotalCompleted`/conteos por opción representan selecciones acumuladas, no personas únicas; usar número de casos como denominador genera porcentajes no aditivos.
