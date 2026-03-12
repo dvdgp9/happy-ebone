@@ -1745,6 +1745,7 @@ class statistics_helper
                 $criteria->addCondition("submitdate IS NOT NULL");
             }
             $multiNotDisplayed = SurveyDynamic::model($surveyid)->count($criteria);
+            $totalMarkedAnswers = array_sum($grawdata);
             if (isset($_POST['noncompleted']) and ($_POST['noncompleted'] == 1)) {
                 //counter
                 $i = 0;
@@ -1752,8 +1753,8 @@ class statistics_helper
                     //we want to have some "real" data here
                     if ($gdata[$i] != "N/A") {
                         //calculate percentage
-                        if ($results > $multiNotDisplayed) {
-                            $gdata[$i] = ($grawdata[$i] / ($results - $multiNotDisplayed)) * 100;
+                        if ($totalMarkedAnswers > 0) {
+                            $gdata[$i] = ($grawdata[$i] / $totalMarkedAnswers) * 100;
                         } else {
                             $gdata[$i] = "N/A";
                         }
@@ -2687,6 +2688,7 @@ class statistics_helper
                 $criteria->addCondition("submitdate IS NOT NULL");
             }
             $multiNotDisplayed = SurveyDynamic::model($surveyid)->count($criteria);
+            $totalMarkedAnswers = array_sum($grawdata);
             if (isset($_POST['noncompleted']) and ($_POST['noncompleted'] == 1)) {
                 //counter
                 $i = 0;
@@ -2694,8 +2696,8 @@ class statistics_helper
                     //we want to have some "real" data here
                     if ($gdata[$i] != "N/A") {
                         //calculate percentage
-                        if ($results > $multiNotDisplayed) {
-                            $gdata[$i] = ($grawdata[$i] / ($results - $multiNotDisplayed)) * 100;
+                        if ($totalMarkedAnswers > 0) {
+                            $gdata[$i] = ($grawdata[$i] / $totalMarkedAnswers) * 100;
                         } else {
                             $gdata[$i] = "N/A";
                         }
